@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.microsoft.hackathon.utility.GetUserPresence;
+import com.microsoft.hackathon.utility.LoadCalendar;
+import com.microsoft.model.CalendarEventResponse;
 import com.microsoft.model.PresenceResponse;
 
 @Controller
@@ -33,6 +35,17 @@ public class MainController {
 	   return new ResponseEntity<PresenceResponse>(pr, responseHeaders, HttpStatus.CREATED);
 	  
   }
+  
+  @RequestMapping("/getUserCalenderForNext24Hour")
+  // @ResponseBody
+  public ResponseEntity<CalendarEventResponse> getUserCalenderForNext24Hour() {
+	  HttpHeaders responseHeaders = new HttpHeaders();
+	   LoadCalendar loadCalender = new LoadCalendar();
+	   CalendarEventResponse calenderInfo = loadCalender.LoadUserTodaysCalendar();
+	   return new ResponseEntity<CalendarEventResponse>(calenderInfo, responseHeaders, HttpStatus.CREATED);
+	  
+  }
+  
   
  
 }

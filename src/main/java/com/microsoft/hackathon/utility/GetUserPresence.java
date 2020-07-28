@@ -35,7 +35,7 @@ public class GetUserPresence {
 				con.setRequestMethod("GET");
 				con.setRequestProperty("User-Agent", USER_AGENT);
 				con.setRequestProperty("Content-Type", "application/json");
-				con.setRequestProperty("Authorization", Token.azureToken);
+				con.setRequestProperty("Authorization", Token.graphToken);
 				con.setRequestProperty("Host", "postman");
 				con.setRequestProperty("Accept", "*/*");
 				
